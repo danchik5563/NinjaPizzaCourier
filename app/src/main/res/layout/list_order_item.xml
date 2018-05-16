@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:elevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/loi_tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                tools:text="Абытаевская, 2а" />
+
+            <LinearLayout
+                android:id="@+id/loi_ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loi_tv_address"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/colorBackgroundDark"
+                android:minHeight="2dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/loi_tv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loi_ll1"
+                tools:text="Карта, позвонить по приезду" />
+
+            <LinearLayout
+                android:id="@+id/loi_ll2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loi_tv_comment"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loi_tv_comment"
+                    android:layout_marginTop="6dp"
+                    tools:text="Минут до доставки: " />
+
+                <TextView
+                    android:id="@+id/loi_tv_minutes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loi_tv_comment"
+                    android:layout_marginTop="6dp"
+                    tools:text="32" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/loi_tv_order_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loi_ll2"
+                tools:text="Статус заказа: в пути" />
+
+            <RelativeLayout
+                android:id="@+id/loi_rl_btn_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loi_tv_order_status"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/loi_btn_order_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/ic_loi_order_done"
+                    android:minHeight="32dp"
+                    android:minWidth="32dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/loi_btn_call_to_client"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_toRightOf="@id/loi_btn_order_done"
+                    android:background="@drawable/ic_loi_call_to_client"
+                    android:minHeight="32dp"
+                    android:minWidth="32dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/loi_btn_navigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="42dp"
+                    android:layout_toLeftOf="@id/loi_btn_order_info"
+                    android:background="@drawable/ic_loi_nav_map"
+                    android:minHeight="32dp"
+                    android:minWidth="32dp"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/loi_btn_order_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/ic_loi_info"
+                    android:minHeight="32dp"
+                    android:minWidth="32dp"
+                    android:textAllCaps="false" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

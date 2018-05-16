@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundDark"
     android:orientation="vertical"
-    android:background="#FF2B2B2B"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     tools:context=".View.Activities.LoginActivity">
 
@@ -65,11 +64,11 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/layout_login_password"
             android:ems="10"
+            android:hint="@string/layout_login_password"
             android:inputType="textPassword"
             android:textColor="@android:color/holo_orange_light"
-            android:textColorHint="@android:color/holo_orange_light"/>
+            android:textColorHint="@android:color/holo_orange_light" />
 
         <CheckBox
             android:id="@+id/cbLoginPassword"
