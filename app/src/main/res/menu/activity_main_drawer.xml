@@ -15,6 +15,10 @@
                 android:icon="@drawable/ic_nav_my_stat"
                 android:title="Моя статистика" />
             <item
+                android:id="@+id/nav_my_shedule"
+                android:icon="@drawable/ic_nav_shedule"
+                android:title="Мой график работы" />
+            <item
                 android:id="@+id/nav_call_to_admin"
                 android:icon="@drawable/ic_nav_call_to_admin"
                 android:title="Позвонить администратору">
@@ -28,6 +32,16 @@
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_nav_settings"
                 android:title="Настройки" />
+
+            <item
+                android:id="@+id/nav_bug_report"
+                android:icon="@drawable/ic_nav_bug_report"
+                android:title="Сообщить об ошибке" />
+
+            <item
+                android:id="@+id/nav_about_program"
+                android:icon="@drawable/ic_nav_about"
+                android:title="О программе" />
         </menu>
     </item>
 

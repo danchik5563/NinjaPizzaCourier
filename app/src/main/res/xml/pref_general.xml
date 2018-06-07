@@ -2,15 +2,23 @@
 
     <!-- NOTE: EditTextPreference accepts EditText attributes. -->
     <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+
     <EditTextPreference
         android:capitalize="words"
-        android:defaultValue="@string/pref_default_display_name"
-        android:inputType="textCapWords"
-        android:key="example_text"
+        android:defaultValue="+7"
+        android:inputType="phone"
+        android:key="general_admin_phone"
         android:maxLines="1"
+        android:maxLength="12"
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="@string/pref_title_admin_tel" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_preference_night_theme"
+        android:title="Ночная тема" />
+
 
     <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
          dismiss it. -->

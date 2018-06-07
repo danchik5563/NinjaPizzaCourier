@@ -60,7 +60,30 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/loi_tv_comment"
                     android:layout_marginTop="6dp"
-                    tools:text="Минут до доставки: " />
+                    android:text="Дата и время заказа: " />
+
+                <TextView
+                    android:id="@+id/loi_tv_order_date_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loi_tv_comment"
+                    android:layout_marginTop="6dp"
+                    tools:text="29.05.2018 21:38" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/loi_ll3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loi_ll2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loi_tv_comment"
+                    android:layout_marginTop="6dp"
+                    android:text="Минут до доставки: " />
 
                 <TextView
                     android:id="@+id/loi_tv_minutes"
@@ -73,18 +96,11 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/loi_tv_order_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/loi_ll2"
-                tools:text="Статус заказа: в пути" />
-
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/loi_rl_btn_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/loi_tv_order_status"
+                android:layout_below="@+id/loi_ll3"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
@@ -92,47 +108,25 @@
                     android:id="@+id/loi_btn_order_done"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginStart="15dp"
-                    android:background="@drawable/ic_loi_order_done"
-                    android:minHeight="32dp"
-                    android:minWidth="32dp"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/loi_btn_call_to_client"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="42dp"
-                    android:layout_toRightOf="@id/loi_btn_order_done"
-                    android:background="@drawable/ic_loi_call_to_client"
-                    android:minHeight="32dp"
-                    android:minWidth="32dp"
-                    android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/loi_btn_navigation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="42dp"
-                    android:layout_toLeftOf="@id/loi_btn_order_info"
-                    android:background="@drawable/ic_loi_nav_map"
-                    android:minHeight="32dp"
-                    android:minWidth="32dp"
-                    android:textAllCaps="false" />
+                    android:layout_marginEnd="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_order_done_selector"
+                    android:elevation="7dp"
+                    android:text="Отметить"
+                    android:translationZ="4dp" />
 
                 <Button
                     android:id="@+id/loi_btn_order_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/ic_loi_info"
-                    android:minHeight="32dp"
-                    android:minWidth="32dp"
-                    android:textAllCaps="false" />
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_order_info_selector"
+                    android:elevation="7dp"
+                    android:text="Подробнее"
+                    android:translationZ="4dp" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
         </RelativeLayout>

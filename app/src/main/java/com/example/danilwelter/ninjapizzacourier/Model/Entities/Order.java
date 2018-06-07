@@ -1,60 +1,137 @@
 package com.example.danilwelter.ninjapizzacourier.Model.Entities;
 
-import com.example.danilwelter.ninjapizzacourier.Model.Enums.OrderNote;
-import com.example.danilwelter.ninjapizzacourier.Model.Enums.OrderStatus;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Order {
 
-    private int _id;
-    public int getId(){
-        return _id;
+    @SerializedName("id")
+    @Expose
+    private String id;
+
+    @SerializedName("courier_id")
+    @Expose
+    private String courierId;
+
+    @SerializedName("order_number")
+    @Expose
+    private int orderNumber;
+
+    @SerializedName("date_time")
+    @Expose
+    private String dateTime;
+
+    @SerializedName("price")
+    @Expose
+    private String price;
+
+    @SerializedName("content")
+    @Expose
+    private String content;
+
+    @SerializedName("status")
+    @Expose
+    private int status;
+
+    @SerializedName("comment")
+    @Expose
+    private String comment;
+
+    @SerializedName("address")
+    @Expose
+    private String address;
+
+    @SerializedName("phone_number")
+    @Expose
+    private String phoneNumber;
+
+    public String getId() {
+        return id;
     }
 
-    private int _orderNumber;
-    public int getOrderNumber(){return _orderNumber;}
-
-    private String _OrderDateTime;
-    public String getOrderDateTime(){return _OrderDateTime;}
-
-    private int _minutesToDeliver;
-    public int getMinutesToDeliver(){return _minutesToDeliver;}
-
-    private int _orderPrice;
-    public int getOrderPrice(){return _orderPrice;}
-
-    private String _orderContent;
-    public String getOrderContent(){return _orderContent;}
-
-    private OrderStatus _orderStatus;
-    public OrderStatus getOrderStatus(){return _orderStatus;}
-
-    private String _comment;
-    public String getComment(){return _comment;}
-
-    private String _address;
-    public String getAddress(){return _address;}
-
-    private String _phoneNumber;
-    public String getPhoneNumber(){return _phoneNumber;}
-
-    private ArrayList<OrderNote> _notes;
-    public ArrayList<OrderNote> getOrderNotes(){return _notes;}
-
-    public Order(int id, int orderNumber, String orderDateTime, int minutesToDeliver,
-                 int orderPrice, String orderContent, OrderStatus orderStatus,
-                 String comment, String address, String phoneNumber, ArrayList<OrderNote> notes){
-        _id = id;
-        _orderNumber = orderNumber;
-        _OrderDateTime = orderDateTime;
-        _minutesToDeliver = minutesToDeliver;
-        _orderPrice = orderPrice;
-        _orderContent = orderContent;
-        _orderStatus = orderStatus;
-        _comment = comment;
-        _address = address;
-        _phoneNumber = phoneNumber;
-        _notes = notes;
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public String getCourierId() {
+        return courierId;
+    }
+
+    public void setCourierId(String courierId) {
+        this.courierId = courierId;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
+    public static Comparator<Order> COMPARE_BY_STATUS = new Comparator<Order>() {
+        @Override
+        public int compare(Order o1, Order o2) {
+            return Integer.compare(o1.getStatus(),o2.getStatus());
+        }
+    };
 }

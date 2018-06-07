@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.danilwelter.ninjapizzacourier">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ico"
@@ -23,7 +25,9 @@
         <activity
             android:name=".View.Activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".View.Activities.OrderActivity"></activity>
+        <activity android:name=".View.Activities.OrderActivity" />
+        <activity android:name=".View.Activities.SheduleActivity" />
+        <activity android:name=".View.Activities.StatActivity"></activity>
     </application>
 
 </manifest>

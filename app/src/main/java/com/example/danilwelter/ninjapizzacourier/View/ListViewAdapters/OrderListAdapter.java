@@ -35,8 +35,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         public TextView tvMinToDelivery;
         public TextView tvOrderStatus;
         public Button btOrderDone;
-        public Button btCallToClient;
-        public Button btNavigation;
         public Button btInfo;
         public CardView cardView;
 
@@ -45,16 +43,16 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             tvAddress = itemView.findViewById(R.id.loi_tv_address);
             tvComment = itemView.findViewById(R.id.loi_tv_comment);
             tvMinToDelivery = itemView.findViewById(R.id.loi_tv_minutes);
-            tvOrderStatus = itemView.findViewById(R.id.loi_tv_order_status);
-
             btOrderDone = itemView.findViewById(R.id.loi_btn_order_done);
-            btCallToClient = itemView.findViewById(R.id.loi_btn_call_to_client);
-            btNavigation = itemView.findViewById(R.id.loi_btn_navigation);
             btInfo = itemView.findViewById(R.id.loi_btn_order_info);
-
             cardView = itemView.findViewById(R.id.cardViewOrder);
         }
 
+    }
+
+    public String getMinutesToDeliver(String dateTime){
+        //TODO Сделать функцию остатка по минутам
+        return "15";
     }
 
     public OrderListAdapter(ArrayList<Order> pOrders, Context pContext, MainPresenter pPresenter){
@@ -69,82 +67,29 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         return new ViewHolder(v);
     }
 
-    public String getStringOrderStatus(Order order){
-        if (order.getOrderStatus() == OrderStatus.IN_ROUTE)
-            return "В пути";
-        else return "Завершен";
-    }
-
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final Order order = orders.get(position);
 
+        if(order.getStatus() == 0)
+        {
+            holder.btOrderDone.setEnabled(false);
+            holder.btOrderDone.setText(context.getResources().getString(R.string.bt_order_done_non_actived));
+        }
+
         holder.tvAddress.setText(order.getAddress().toString());
         holder.tvComment.setText(order.getComment().toString());
-        holder.tvMinToDelivery.setText("" + order.getMinutesToDeliver() + "");
-        holder.tvOrderStatus.setText(getStringOrderStatus(order));
-        //if(order.getOrderStatus() == OrderStatus.IN_ROUTE) holder.cardView.setBackgroundColor(context.getResources().getColor(R.color.colorOrderInRoute));
-        //else holder.cardView.setBackgroundColor(context.getResources().getColor(R.color.colorOrderDone));
-
-
+        holder.tvMinToDelivery.setText(getMinutesToDeliver(order.getDateTime()).toString());
+        holder.btInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onInfoPressed(order);
+            }
+        });
         holder.btOrderDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.onOrderDonePressed(order.getOrderNumber());
-            }
-        });
-
-        holder.btCallToClient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String uri = "tel:" + order.getPhoneNumber().trim() ;
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse(uri));
-                try {
-                    context.startActivity(intent);
-                }catch (SecurityException ex){
-                    Toast.makeText(context,"Приложению заблокирован доступ к звонкам!", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        holder.btNavigation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO Navigation
-            }
-        });
-
-        holder.btInfo.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                String orderInfo;
-                orderInfo = "Номер заказа: " + order.getOrderNumber();
-                orderInfo += "\nДата и время заказа: " + order.getOrderDateTime();
-                orderInfo += "\nСумма заказа, руб: " + order.getOrderPrice();
-                orderInfo += "\nЧто заказано: " + order.getOrderContent();
-                orderInfo += "\nПримечания: ";
-                for (OrderNote note : order.getOrderNotes()
-                        ) {
-                    if(note == OrderNote.ATC) orderInfo += "\nЧитать комментарии;";
-                    if(note == OrderNote.BTC) orderInfo += "\nКупон в подарок;";
-                    if(note == OrderNote.DOT) orderInfo += "\nДоставка на время;";
-                    if(note == OrderNote.PBC) orderInfo += "\nОплата картой;";
-
-                }
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Информация о заказе");
-                builder.setMessage(orderInfo);
-                builder.setCancelable(false).setNeutralButton("Закрыть", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                AlertDialog alert = builder.create();
-                alert.show();
             }
         });
     }

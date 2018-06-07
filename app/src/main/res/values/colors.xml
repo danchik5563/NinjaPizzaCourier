@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFF8800</color>
-    <color name="colorPrimaryDark">#965000</color>
-    <color name="colorAccent">#9f7145</color>
+    <color name="colorPrimary">#ff8200</color>
+    <color name="colorPrimaryDark">#e1b75d00</color>
+    <color name="colorAccent">#000000</color>
     <color name="colorBackgroundDark">#FF2B2B2B</color>
 
 
-    <color name="colorOrderDone">#FF616161</color>
-    <color name="colorOrderInRoute">#89bfec</color>
+
+    <color name="colorBtnOrderInfo">#89bfec</color>
+    <color name="colorBtOrderDoneNo">#FF46B96B</color>
+    <color name="colorBtOrderDoneYes">#8b8b8b</color>
 </resources>
