@@ -2,13 +2,16 @@ package com.example.danilwelter.ninjapizzacourier.View.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -40,6 +43,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     private Intent intent;
     private NestedScrollView scrollView;
     private WebView webView;
+    private Toolbar toolbar;
+    private SharedPreferences settings;
 
     String address;
     String comment;
@@ -81,7 +86,17 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         btShareWhatsApp = findViewById(R.id.activity_order_bt_share_wa);
         webView = findViewById(R.id.activity_order_wv_map);
         scrollView = findViewById(R.id.activity_order_scroll_view);
+        toolbar = findViewById(R.id.activity_order_toolbar);
         //endregion
+
+        settings = PreferenceManager.getDefaultSharedPreferences(this);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         //region GET_EXTRAS
         address = intent.getStringExtra("orderAddress");
@@ -107,6 +122,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
             btOrderDone.setEnabled(false);
             btOrderDone.setText("Доставлен");
         }
+
+        btNavigation.setEnabled(false);
 
         //region BT_SET_CLICK_LISTENNER
         btOrderDone.setOnClickListener(this);
@@ -150,18 +167,28 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
             case R.id.activity_order_bt_order_done : {
 
                 scrollView.scrollTo(0,0);
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                btOrderDone.setEnabled(false);
+                btOrderDone.setText("Доставлен");
                 break;
             }//endregion
 
             //region CASE_NAVIGATOR
             case R.id.activity_order_bt_navi : {
 
+                NAVI_APP = settings.getString("pref_navigator", "2ГИС Навигатор");
+
+
                 if(!READY_TO_NAVIGATE){
                     showToast("Не удалось построить маршрут, попробуйте построить мршрут в навигаторе вручную.");
                 } else{
 
                     switch (NAVI_APP){
-                        case "2gis" : {
+                        case "2ГИС Навигатор" : {
 
                             String uriString = "dgis://2gis.ru/routeSearch/rsType/car/to/" + coordinates.getY() + "," + coordinates.getX();
                             Uri uri = Uri.parse(uriString);
@@ -182,7 +209,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
                             break;
                         }
 
-                        case "yandex" : {
+                        case "Яндекс.Навигатор" : {
 
                             Intent intent = new Intent("ru.yandex.yandexnavi.action.BUILD_ROUTE_ON_MAP");
                             intent.setPackage("ru.yandex.yandexnavi");
@@ -261,7 +288,11 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            if (coordinates != null) READY_TO_NAVIGATE = true;
+            if (coordinates != null)
+            {
+                READY_TO_NAVIGATE = true;
+            }
+            btNavigation.setEnabled(true);
         }
     }
 

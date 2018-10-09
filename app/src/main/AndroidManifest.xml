@@ -21,13 +21,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activities.LoginActivity" />
+        <activity
+            android:name=".View.Activities.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.Activities.OrderActivity"
+            android:label="@string/title_activity_order"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".View.Activities.SettingsActivity"
-            android:label="@string/title_activity_settings" />
-        <activity android:name=".View.Activities.OrderActivity" />
-        <activity android:name=".View.Activities.SheduleActivity" />
-        <activity android:name=".View.Activities.StatActivity"></activity>
+            android:label="@string/action_settings"></activity>
+        <activity android:name=".View.Activities.SheduleActivity"
+            android:label="Мое расписание"/>
+        <activity android:name=".View.Activities.StatActivity"
+            android:label="Моя статистика"/>
+        <activity android:name=".View.Activities.BugReportActivity"
+            android:label="Сообщить об ошибке"></activity>
     </application>
 
 </manifest>

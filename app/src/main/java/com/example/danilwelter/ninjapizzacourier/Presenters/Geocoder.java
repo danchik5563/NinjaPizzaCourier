@@ -108,7 +108,6 @@ public class Geocoder {
         }
     }
 
-
     //region HTML-WEBVIEW-BLOCK
     private final String HTML_PART_1 = "<!DOCTYPE html><html><head>\n" +
             "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +

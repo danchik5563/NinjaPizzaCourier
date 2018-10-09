@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundDark"
+    android:background="@color/contentBackground"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     tools:context=".View.Activities.LoginActivity">
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="@string/layout_login_authorize"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_orange_light"
+            android:textColor="@color/primaryTextColor"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -54,28 +54,31 @@
             android:id="@+id/etLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryColor"
             android:hint="@string/layout_login_login"
             android:inputType="text"
             android:lines="1"
-            android:textColor="@android:color/holo_orange_light"
-            android:textColorHint="@android:color/holo_orange_light" />
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryColor"
             android:ems="10"
             android:hint="@string/layout_login_password"
             android:inputType="textPassword"
-            android:textColor="@android:color/holo_orange_light"
-            android:textColorHint="@android:color/holo_orange_light" />
+            android:textColor="@color/primaryTextColor"
+            android:textColorHint="@color/primaryTextColor" />
 
         <CheckBox
             android:id="@+id/cbLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/layout_login_remain_in_the_system"
-            android:textColor="@android:color/holo_orange_light" />
+            android:buttonTint="@color/primaryColor"
+            android:text="Оставаться в системе"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -93,7 +96,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/layout_login_enter"
-            android:textColor="@android:color/holo_orange_light" />
+            android:background="@drawable/btn_order_selector"
+            android:textColor="@color/primaryTextColor" />
     </LinearLayout>
 
 </LinearLayout>

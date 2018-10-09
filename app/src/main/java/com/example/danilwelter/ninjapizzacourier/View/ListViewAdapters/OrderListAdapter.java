@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -25,13 +26,14 @@ import java.util.ArrayList;
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder> {
 
     ArrayList<Order> orders;
-    Context context;
     MainPresenter presenter;
+    Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView tvAddress;
         public TextView tvComment;
+        public TextView tvOrderDateTime;
         public TextView tvMinToDelivery;
         public TextView tvOrderStatus;
         public Button btOrderDone;
@@ -42,7 +44,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             super(itemView);
             tvAddress = itemView.findViewById(R.id.loi_tv_address);
             tvComment = itemView.findViewById(R.id.loi_tv_comment);
+            tvOrderDateTime = itemView.findViewById(R.id.loi_tv_order_date_time);
             tvMinToDelivery = itemView.findViewById(R.id.loi_tv_minutes);
+            tvOrderStatus = itemView.findViewById(R.id.loi_tv_status);
             btOrderDone = itemView.findViewById(R.id.loi_btn_order_done);
             btInfo = itemView.findViewById(R.id.loi_btn_order_info);
             cardView = itemView.findViewById(R.id.cardViewOrder);
@@ -74,11 +78,17 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         if(order.getStatus() == 0)
         {
             holder.btOrderDone.setEnabled(false);
-            holder.btOrderDone.setText(context.getResources().getString(R.string.bt_order_done_non_actived));
+            holder.btOrderDone.setText("Доставлен");
+            holder.tvOrderStatus.setText("Доставлен");
+        } else {
+            holder.btOrderDone.setEnabled(true);
+            holder.btOrderDone.setText("Отметить");
+            holder.tvOrderStatus.setText("В пути");
         }
 
         holder.tvAddress.setText(order.getAddress().toString());
         holder.tvComment.setText(order.getComment().toString());
+        holder.tvOrderDateTime.setText(order.getDateTime());
         holder.tvMinToDelivery.setText(getMinutesToDeliver(order.getDateTime()).toString());
         holder.btInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +99,14 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         holder.btOrderDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                holder.btOrderDone.setEnabled(false);
+                holder.btOrderDone.setText("Доставлен");
                 presenter.onOrderDonePressed(order.getOrderNumber());
             }
         });

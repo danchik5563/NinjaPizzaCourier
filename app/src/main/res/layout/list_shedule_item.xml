@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_alignParentBottom="false"
     android:layout_alignParentRight="false"
     android:orientation="vertical">
@@ -52,7 +52,7 @@
                 android:layout_below="@id/lsi_ll1"
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
-                android:background="@color/colorBackgroundDark"
+                android:background="@color/primaryTextColor"
                 android:minHeight="2dp"
                 android:orientation="horizontal">
 
@@ -76,25 +76,25 @@
                         android:id="@+id/lsi_tv_monday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Пн Выходной" />
+                        android:text="Пн Выходной" />
 
                     <TextView
                         android:id="@+id/lsi_tv_wednesday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Ср 10:30 -17:00" />
+                        android:text="Ср 10:30 -17:00" />
 
                     <TextView
                         android:id="@+id/lsi_tv_friday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Пт 10:30 -17:00" />
+                        android:text="Пт 10:30 -17:00" />
 
                     <TextView
                         android:id="@+id/lsi_tv_sunday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Вс 10:30 -17:00" />
+                        android:text="Вс 10:30 -17:00" />
 
                 </LinearLayout>
 
@@ -109,19 +109,19 @@
                         android:id="@+id/lsi_tv_tuesday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Вт 10:30 -17:00" />
+                        android:text="Вт 10:30 -17:00" />
 
                     <TextView
                         android:id="@+id/lsi_tv_thursday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Чт Выходной" />
+                        android:text="Чт Выходной" />
 
                     <TextView
                         android:id="@+id/lsi_tv_saturday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Сб 10:30 -17:00" />
+                        android:text="Сб 10:30 -17:00" />
 
                 </LinearLayout>
 
@@ -130,26 +130,6 @@
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="27dp"
-            android:layout_marginEnd="28dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_fab_add_shedule" />
-
-    </RelativeLayout>
 
 </LinearLayout>
 

@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:elevation="4dp">
+        android:addStatesFromChildren="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_card_view"
             android:padding="5dp">
 
             <TextView
@@ -35,7 +37,7 @@
                 android:layout_below="@id/loi_tv_address"
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
-                android:background="@color/colorBackgroundDark"
+                android:background="@color/primaryTextColor"
                 android:minHeight="2dp"
                 android:orientation="horizontal">
 
@@ -71,6 +73,7 @@
                     tools:text="29.05.2018 21:38" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/loi_ll3"
                 android:layout_width="match_parent"
@@ -95,12 +98,36 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/loi_ll4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/loi_ll3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loi_tv_comment"
+                    android:layout_marginTop="6dp"
+                    android:text="Статус заказа: " />
+
+                <TextView
+                    android:id="@+id/loi_tv_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/loi_tv_comment"
+                    android:layout_marginTop="6dp"
+                    tools:text="В пути/Завершен" />
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/loi_rl_btn_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/loi_ll3"
+                android:layout_below="@+id/loi_ll4"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
@@ -121,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_order_info_selector"
+                    android:background="@drawable/btn_order_selector"
                     android:elevation="7dp"
                     android:text="Подробнее"
                     android:translationZ="4dp" />

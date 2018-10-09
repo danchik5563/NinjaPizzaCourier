@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">NinjaPizza: Курьер</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Настройки</string>
+
+
     <string name="title_activity_settings">Настройки</string>
+    <string name="title_activity_order">Карточка заказа</string>
+    <string name="title_activity_login">Авторизация</string>
+
 
     <!-- Strings related to Settings -->
 
@@ -87,7 +93,6 @@
     <string name="layout_login_password">Пароль</string>
     <string name="layout_login_remain_in_the_system">Оставаться в системе</string>
     <string name="layout_login_enter">Войти</string>
-    <string name="title_activity_order">Order</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -184,5 +189,6 @@
 
 
     <string name="position_not_found">POSITION_NOT_FOUND</string>
+
 
 </resources>
